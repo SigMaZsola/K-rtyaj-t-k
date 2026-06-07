@@ -40,18 +40,47 @@ const CardContainer = ({
   const handleCardClick = (card: CardType) => {
   const type = getCardCategory(card.suit);
 
+  const value = Number(card.value);
+
   console.log(type);
 
   if (type === "weapon") {
     setWeapon(card);
+    return;
   }
 
   if (type === "potion") {
-    setPlayerHP(prev => prev + Number(card.value));
+    setPlayerHP(prev => Math.min(20, prev + value));
+    return;
   }
 
+
   if (type === "monster") {
-    console.log("Fight!");
+    const weaponValue = weapon ? Number(weapon.value) : 0;
+
+    let damage = value - weaponValue;
+
+    if (damage < 0) damage = 0;
+
+    setPlayerHP(prev => prev - damage);
+
+    if (weapon) {
+      const newWeaponValue = Number(weapon.value) - value;
+
+      if (newWeaponValue <= 0) {
+        setWeapon(null);
+      } else {
+        setWeapon({
+          ...weapon,
+          value: String(newWeaponValue),
+        });
+      }
+    }
+    //LALALA kitöröljük a kártyát
+    setCards(prev =>
+    prev.filter(c => c.code !== card.code)
+  );
+    return;
   }
 };
 

@@ -2,6 +2,7 @@ import React from 'react'
 import style from './Card.module.css'
 
 export type CardType = {
+    
     code: string;
     image: string;
     value: string;
