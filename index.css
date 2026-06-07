@@ -1,0 +1,23 @@
+body {
+    background-color: #18550c;
+    display: flex;
+    justify-content: center;
+
+    height: 100vh;
+    margin: 0;
+    color: white;
+}
+
+button {
+    background-color: #b0dba8;
+    color: rgb(72, 83, 107);
+    border: 5px solid rgb(61, 68, 85);
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+}
+
+button:hover {
+    scale: 1.1;
+}
