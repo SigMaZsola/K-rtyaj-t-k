@@ -1,0 +1,11 @@
+.cardContainer{
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+}
+.roomTitle{
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
